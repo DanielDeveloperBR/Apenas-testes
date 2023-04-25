@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste 1</title>
+</head>
+<body>
+    <h1>Testando 1</h1>
+    <input type="text" name="texto" id="texto">
+    <button id="botao">Enviar</button>
+    <button>Limpar</button>
+
+    <script>
+        var divsCriadas = [] // array para armazenar as divs criadas
+      
+        var texto = document.getElementById('texto')
+        var botao = document.getElementById('botao')
+        var btnlimpar = document.getElementsByTagName('button')[1]
+      
+        //botao enviar as div
+        botao.addEventListener("click", function () {
+          var novaDiv = document.createElement('p')
+          novaDiv.textContent = texto.value
+          divsCriadas.push(novaDiv) // adiciona a nova div no array
+          document.body.appendChild(novaDiv)
+        })
+      
+        btnlimpar.addEventListener("click",function(){
+          for (var i = 0; i < divsCriadas.length; i++) {
+            divsCriadas[i].remove() // remove cada div do array
+          }
+          divsCriadas = [] // limpa o array
+        })
+      </script>
+      
+</body>
+</html>
